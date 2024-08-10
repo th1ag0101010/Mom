@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cumpleaños de Mamá</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Lobster&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: url('https://via.placeholder.com/1920x1080/ffebee/ffcc80?text=Feliz+Cumpleaños+Mamá') no-repeat center center fixed;
+            background-size: cover;
+            color: #4d0c21;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        h1 {
+            color: #d4af37;
+            font-size: 3.5rem;
+            margin-top: 50px;
+            font-weight: bold;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+            font-family: 'Lobster', cursive;
+        }
+        h2 {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.5rem;
+            color: #ff4081;
+            margin: 30px 0;
+        }
+        p {
+            font-size: 1.3rem;
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 90%;
+            margin: 50px auto;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+        .card {
+            background-color: #fce4ec;
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            width: 180px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 0, 150, 0.4), rgba(255, 150, 0, 0.4));
+            transition: opacity 0.3s;
+            opacity: 0;
+            border-radius: 10px;
+        }
+        .card:hover:before {
+            opacity: 1;
+        }
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .card span {
+            display: block;
+            margin-top: 10px;
+            font-size: 2rem;
+        }
+        .ribbon {
+            background-color: #ff4081;
+            color: #fff;
+            padding: 10px 30px;
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.5rem;
+            font-family: 'Lobster', cursive;
+            z-index: 1000;
+        }
+        .floating-balloon {
+            position: absolute;
+            bottom: -100px;
+            width: 100px;
+            height: 150px;
+            background-color: #ff4081;
+            border-radius: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 6s ease-in-out infinite;
+            z-index: 0;
+        }
+        @keyframes float {
+            0% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-50px);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 140px;
+                font-size: 0.9rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+        }
+        /* Nuevos Detalles */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .heart {
+            width: 20px;
+            height: 20px;
+            background-color: #ff4081;
+            position: absolute;
+            transform: rotate(45deg);
+            animation: floatHeart 7s infinite;
+            opacity: 0.6;
+        }
+        .heart:before,
+        .heart:after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            background-color: #ff4081;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+        .heart:after {
+            left: -10px;
+            top: 0;
+        }
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 0.6;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-600px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+        /* Nuevas secciones */
+        .game-section, .media-section {
+            margin: 40px auto;
+            max-width: 80%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        .game-section h2, .media-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .game-container, .media-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .game-container button, .media-container iframe {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="ribbon">¡Te amamos, Mamá!</div>
+
+    <!-- Corazones Flotantes -->
+    <div class="floating-hearts">
+        <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="heart" style="left: 30%; animation-delay: 1s;"></div>
+        <div class="heart" style="left: 50%; animation-delay: 2s;"></div>
+        <div class="heart" style="left: 70%; animation-delay: 3s;"></div>
+        <div class="heart" style="left: 90%; animation-delay: 4s;"></div>
+    </div>
+
+    <div class="container">
+        <h1>¡Feliz Cumpleaños, Mamá!</h1>
+        <p>Hoy celebramos no solo un año más de vida, sino todos los momentos especiales que hemos compartido, las sonrisas que has dibujado en mi rostro y las veces que has estado a mi lado cuando más te necesitaba. Eres mi mayor inspiración, mi guía y mi mejor amiga.
+
+            Cada día me siento más afortunado de ser tu hijo(a). Tu amor incondicional, tu sabiduría y tu fuerza me han enseñado el verdadero significado de la vida. Eres el corazón de nuestra familia, el pilar que nos sostiene y la luz que ilumina nuestros días.
+            
+            En este día tan especial, quiero desearte toda la felicidad del mundo. Que tus sueños se hagan realidad, que sigas cosechando éxitos y, sobre todo, que sigas siendo tan increíble como siempre.
+            
+            Gracias por ser mi mamá y por todo lo que haces por mí. ¡Te amo con todo mi corazón!</p>
+        <h2>Mensajes Especiales</h2>
+        <div class="card" onclick="showMessage('Eres la mejor mamá del universo. Gracias por tu amor incondicional!')">
+            🎈<span>Mensaje 1</span>
+        </div>
+        <div class="card" onclick="showMessage('Tu sonrisa ilumina nuestros días. ¡Feliz cumpleaños!')">
+            🎉<span>Mensaje 2</span>
+        </div>
+        <div class="card" onclick="showMessage('Siempre estaré agradecido(a) por tu apoyo y amor. ¡Disfruta tu día!')">
+            💖<span>Mensaje 3</span>
+        </div>
+        <div class="card" onclick="showMessage('En tu cumpleaños, quiero recordarte lo especial que eres para nosotros. Te amamos!')">
+            🎂<span>Mensaje 4</span>
+        </div>
+        <div class="card" onclick="showMessage('Eres la razón de tantas sonrisas. Que este día sea tan maravilloso como tú.')">
+            🌟<span>Mensaje 5</span>
+        </div>
+        <div class="card" onclick="showMessage('Gracias por ser una madre increíble y una amiga excepcional. ¡Feliz día!')">
+            💕<span>Mensaje 6</span>
+        </div>
+        <div class="card" onclick="showMessage('Cada día a tu lado es un regalo. Disfruta tu cumpleaños al máximo.')">
+            🎊<span>Mensaje 7</span>
+        </div>
+        <div class="card" onclick="showMessage('Eres un ejemplo de amor y bondad en nuestras vidas. ¡Te queremos mucho!')">
+            🌹<span>Mensaje 8</span>
+        </div>
+        <div class="card" onclick="showMessage('Que todos tus sueños se hagan realidad en este nuevo año de vida. ¡Felicidades!')">
+            🎁<span>Mensaje 9</span>
+        </div>
+        <div class="card" onclick="showMessage('Tu amor es el mejor regalo. Espero que hoy sientas todo el amor que das.')">
+            🎶<span>Mensaje 10</span>
+        </div>
+        <div class="card" onclick="showMessage('Siempre te llevo en mi corazón. ¡Feliz cumpleaños, mamá!')">
+            💖<span>Mensaje 11</span>
+        </div>
+        <div class="card" onclick="showMessage('Que este día esté lleno de risas y alegría. Te lo mereces todo.')">
+            🌺<span>Mensaje 12</span>
+        </div>
+        <div class="card" onclick="showMessage('Nunca olvidaré todos los sacrificios que has hecho por mí. ¡Te amo!')">
+            🌼<span>Mensaje 13</span>
+        </div>
+        <div class="card" onclick="showMessage('Tu alegría es contagiosa. Espero que hoy sea un día muy feliz para ti.')">
+            🍰<span>Mensaje 14</span>
+        </div>
+        <div class="card" onclick="showMessage('Gracias por enseñar siempre lo correcto y acompañarme en todo. ¡Te adoro!')">
+            🌈<span>Mensaje 15</span>
+        </div>
+    </div>
+
+    <!-- Nueva Sección: Juegos Interactivos -->
+    <div class="game-section">
+        <h2>Juegos Interactivos</h2>
+        <div class="game-container">
+            <a href="juego.html"><button>¡Juega y Diviértete!</button></a>
+        </div>
+    </div>
+
+    <!-- Nueva Sección: Música y Videos -->
+    <div class="media-section">
+        <h2>Música y Videos</h2>
+        <div class="media-container">
+            <a href="https://www.youtube.com/shorts/1UumDBqhel0?feature=share" target="_blank">Ver Short en YouTube</a>
+            <iframe src="https://www.youtube.com/embed/kJQP7kiw5Fk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen width="560" height="315"></iframe>
+        </div>
+    </div>
+
+    <div class="floating-balloon"></div>
+
+    <footer>
+        <p>Con todo nuestro amor, tus hijos.</p>
+    </footer>
+
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+    </script>
+</body>
+</html>
